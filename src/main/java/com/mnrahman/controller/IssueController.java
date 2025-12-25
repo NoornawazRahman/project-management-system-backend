@@ -88,7 +88,7 @@ public class IssueController {
         return new ResponseEntity<>(issue, HttpStatus.OK);
     }
 
-    @PutMapping("/{issueId}/assignee/{status}")
+    @PutMapping("/{issueId}/status/{status}")
     public ResponseEntity<Issue> updateIssueStatus(
             @PathVariable Long issueId,
             @PathVariable String status
