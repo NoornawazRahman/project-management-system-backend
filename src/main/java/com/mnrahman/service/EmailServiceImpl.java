@@ -2,12 +2,14 @@ package com.mnrahman.service;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class EmailServiceImpl implements EmailService{
     @Autowired
@@ -26,8 +28,9 @@ public class EmailServiceImpl implements EmailService{
 
         try {
             javaMailSender.send(mimeMessage);
-        } catch (MailSendException e) {
-            throw new MailSendException("Failed to send email");
+        } catch (Exception e) {
+            log.error("Failed to send email: " + e.getMessage(), e);
+            throw new MailSendException("Failed to send email", e);
         }
     }
 }
