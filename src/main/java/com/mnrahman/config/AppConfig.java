@@ -42,7 +42,7 @@ public class AppConfig {
                         "http://localhost:3000",
                         "http://localhost:5173",
                         "http://localhost:4200",
-                        "https://project-management-system-frontend-gbiv.onrender.com/"
+                        "https://project-management-system-frontend-gbiv.onrender.com"
                 ));
                 cfg.setAllowedMethods(Collections.singletonList("*"));
                 cfg.setAllowCredentials(true);
